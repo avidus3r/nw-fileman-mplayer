@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World NW</title>
+
+    <style type="text/css">
+        body{
+            font-family: 'Helvetica', sans-serif;
+        }
+        .folderPath{
+            width:95%;
+            margin: 0;
+            padding: .15em;
+            font-size: 12px;
+        }
+        ul, li{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        #diff, #manage{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <script>
+
+        var App = require('./src/client/js/Application');
+        App.start();
+
+        /*
+         * get the system platform using node.js
+
+        var os = require('os');
+        document.write('<h1>Your System</h1>\n');
+        document.write('<h4>platform: '+ os.platform() + '</h4>\n');
+        document.write('<h4>architecture: '+ os.arch() + '</h4>\n');
+        document.write('<h4>CPUs: '+ JSON.stringify(os.cpus()) + '</h4>\n');
+        document.write('<h4>FreeMEM: '+ os.freemem() + '</h4>\n');
+        */
+
+
+    </script>
+
+    <div id="container">
+        <div class="choices">
+            <button onclick="selectUI('diff')">Diff</button><button onclick="selectUI('manage')">Manage</button>
+        </div>
+        <section id="diff">
+            <div style="display: block; width: 50%; float:left;">
+                <input type="file" class="fileUpload" onchange="selectFolder(event)" webkitdirectory mozdirectory msdirectory odirectory directory multiple />
+                <input style="display: none;" type="text" class="folderPath" value="" />
+            </div>
+            <div style="display: block; width: 50%; float:left;">
+                <input type="file" class="fileUpload" onchange="selectFolder(event)" webkitdirectory mozdirectory msdirectory odirectory directory multiple />
+                <input style="display: none;" type="text" class="folderPath" value="" />
+            </div>
+            <div>
+                <button onclick="handleFolders()">GO</button>
+            </div>
+            <div id="fileLists">
+                <ul style="display: block; width: 50%; float:left;">
+
+                </ul>
+                <ul style="display: block; width: 50%; float:right;">
+
+                </ul>
+            </div>
+        </section>
+        <section id="manage">
+            <div style="display: block; width: 50%; float:left;">
+                <input type="file" class="fileUpload" onchange="selectFolder(event)" webkitdirectory mozdirectory msdirectory odirectory directory multiple />
+                <input style="display: none;" type="text" class="folderPath" value="" />
+            </div>
+            <div>
+                <button onclick="manageFolder()">GO</button>
+            </div>
+            <div id="fileList" style="float: left; width: 100%; padding: 1em 0;">
+                <ul style="display: block; width: 50%; float:left;">
+
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

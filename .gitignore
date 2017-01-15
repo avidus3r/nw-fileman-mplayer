@@ -1,0 +1,17 @@
+# OS or Editor folders
+.idea
+.DS_Store
+.cache
+.project
+.settings
+.tmproj
+Thumbs.db
+aws.json
+
+# NPM packages folder.
+node_modules/
+
+# Generated folders.
+tmp/
+dist/
+build/
